@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietTrack.SuperMarket.DbUp", "DietTrack.SuperMarket.DbUp\DietTrack.SuperMarket.DbUp.csproj", "{1CB88D60-1B2B-475D-9A22-D8B49317990F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietTrack.SuperMarket", "DietTrack.SuperMarket\DietTrack.SuperMarket.csproj", "{801F27E9-2440-458E-9AFE-7F2902D3E2FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietTrack.SuperMarket.Core", "DietTrack.SuperMarket.Core\DietTrack.SuperMarket.Core.csproj", "{81F1D3F2-037B-45F1-B119-11530CFA2FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietTrack.SuperMarket.Application", "DietTrack.SuperMarket.Application\DietTrack.SuperMarket.Application.csproj", "{332AE4A0-8D7D-4FC9-8185-AF23EECBFDFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{101CBF2D-AE72-4627-871B-97EB20387B3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{7EEA7A36-14EC-43FA-A7B7-E06044EE288C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,24 @@ Global
 		{1CB88D60-1B2B-475D-9A22-D8B49317990F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CB88D60-1B2B-475D-9A22-D8B49317990F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CB88D60-1B2B-475D-9A22-D8B49317990F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801F27E9-2440-458E-9AFE-7F2902D3E2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801F27E9-2440-458E-9AFE-7F2902D3E2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801F27E9-2440-458E-9AFE-7F2902D3E2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801F27E9-2440-458E-9AFE-7F2902D3E2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F1D3F2-037B-45F1-B119-11530CFA2FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81F1D3F2-037B-45F1-B119-11530CFA2FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81F1D3F2-037B-45F1-B119-11530CFA2FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81F1D3F2-037B-45F1-B119-11530CFA2FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{332AE4A0-8D7D-4FC9-8185-AF23EECBFDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332AE4A0-8D7D-4FC9-8185-AF23EECBFDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332AE4A0-8D7D-4FC9-8185-AF23EECBFDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332AE4A0-8D7D-4FC9-8185-AF23EECBFDFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CB88D60-1B2B-475D-9A22-D8B49317990F} = {7EEA7A36-14EC-43FA-A7B7-E06044EE288C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {815A5AFD-CD00-42CA-AA8D-48FBC80119C1}
