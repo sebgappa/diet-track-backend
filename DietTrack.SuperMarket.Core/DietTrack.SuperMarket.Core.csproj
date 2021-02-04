@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Foods\Commands\" />
+    <Folder Include="Domain\Foods\Assemblers\" />
+    <Folder Include="Domain\Foods\Queries\" />
+  </ItemGroup>
 
 </Project>
