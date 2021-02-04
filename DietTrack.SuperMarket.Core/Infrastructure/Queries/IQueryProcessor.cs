@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DietTrack.SuperMarket.DataViews;
+using System.Threading.Tasks;
 
 namespace DietTrack.SuperMarket.Core.Infrastructure
 {
-    public interface IQueryProcessor { }
+    public interface IQueryProcessor {
+
+        Task<TResult> Process<TResult>(IQuery<TResult> query) 
+            where TResult : IDataView;
+    }
 }

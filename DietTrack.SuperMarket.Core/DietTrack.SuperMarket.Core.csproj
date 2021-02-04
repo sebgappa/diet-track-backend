@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Foods\Commands\" />
     <Folder Include="Domain\Foods\Assemblers\" />
-    <Folder Include="Domain\Foods\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
