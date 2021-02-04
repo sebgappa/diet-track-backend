@@ -10,4 +10,8 @@
     <Folder Include="Domain\Foods\Queries\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DietTrack.SuperMarket.DataViews\DietTrack.SuperMarket.DataViews.csproj" />
+  </ItemGroup>
+
 </Project>

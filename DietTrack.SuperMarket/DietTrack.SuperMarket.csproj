@@ -12,6 +12,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore" Version="4.6.2" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DietTrack.SuperMarket.Core\DietTrack.SuperMarket.Core.csproj" />
   </ItemGroup>
 
 </Project>
