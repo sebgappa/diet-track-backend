@@ -1,14 +1,30 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DietTrack.SuperMarket.Core.Infrastructure.Queries;
 using DietTrack.SuperMarket.DataViews;
 
 namespace DietTrack.SuperMarket.Core.Domain.Foods.Queries.Handlers
 {
-    public class GetFoodQueryHandler : IQueryHandler<GetFoodQuery, Food>
+    public class GetFoodQueryHandler : IQueryHandler<GetFoodQuery, Paged<Food>>
     {
-        public Task<Food> HandleAsync(GetFoodQuery query)
+        public Task<Paged<Food>> HandleAsync(GetFoodQuery query)
         {
-            throw new System.NotImplementedException();
+            var pagedData = new Paged<Food>
+            {
+                Total = 10,
+                Data = new List<Food>{
+                    new Food
+                    {
+                        Protein = 10,
+                        Fat = 10,
+                        Carbs = 10
+                    }
+                },
+                Page = query.Page,
+                PageSize = query.PageSize
+            };
+
+            return Task.FromResult(pagedData);
         }
     }
 }
