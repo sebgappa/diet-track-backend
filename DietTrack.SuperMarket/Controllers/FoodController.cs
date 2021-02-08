@@ -1,6 +1,7 @@
 ﻿using DietTrack.SuperMarket.Core.Domain.Foods.Queries;
 using DietTrack.SuperMarket.Core.Infrastructure;
 using DietTrack.SuperMarket.DataViews;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -20,6 +21,7 @@ namespace DietTrack.SuperMarket.Controllers
         }
 
         [HttpGet]
+        [Authorize("read:food")]
         public async Task<IActionResult> GetFood([FromQuery] int barcode = 0, [FromQuery] int page = 1, [FromQuery] int pageSize = 25)
         {
             GetFoodQuery getFood = new GetFoodQuery(barcode, page, pageSize);
