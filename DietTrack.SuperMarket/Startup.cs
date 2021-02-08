@@ -58,6 +58,8 @@ namespace DietTrack.SuperMarket
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
+
             app.UseSimpleInjector(_container, options =>
             {
                 options.UseLogging();
