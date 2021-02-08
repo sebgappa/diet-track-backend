@@ -1,6 +1,8 @@
-﻿using DietTrack.SuperMarket.Infrastructure.Filters;
+﻿using DietTrack.SuperMarket.Infrastructure.Authorization;
+using DietTrack.SuperMarket.Infrastructure.Filters;
 using DietTrack.SuperMarket.Infrastructure.SimpleInjector;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +40,7 @@ namespace DietTrack.SuperMarket
                     .AddControllerActivation();
             });
 
-            // Auth
+            //Authentication
             string domain = $"https://{Configuration["Auth0:Domain"]}/";
 
             services.AddAuthentication(options =>
@@ -54,6 +56,14 @@ namespace DietTrack.SuperMarket
                     NameClaimType = ClaimTypes.NameIdentifier
                 };
             });
+
+            //Authorization
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("read:food", policy => policy.Requirements.Add(new HasScopeRequirement("read:food", domain)));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
