@@ -21,7 +21,7 @@ namespace DietTrack.SuperMarket.Controllers
         }
 
         [HttpGet]
-        [Authorize("read:food")]
+        [Authorize]
         public async Task<IActionResult> GetFood([FromQuery] int barcode = 0, [FromQuery] int page = 1, [FromQuery] int pageSize = 25)
         {
             GetFoodQuery getFood = new GetFoodQuery(barcode, page, pageSize);
