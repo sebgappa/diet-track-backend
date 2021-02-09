@@ -1,11 +1,8 @@
-﻿using DietTrack.SuperMarket.Infrastructure.Authorization;
-using DietTrack.SuperMarket.Infrastructure.Filters;
+﻿using DietTrack.SuperMarket.Infrastructure.Filters;
 using DietTrack.SuperMarket.Infrastructure.SimpleInjector;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +17,7 @@ namespace DietTrack.SuperMarket
         private readonly Container _container = new Container();
 
         public IConfiguration Configuration { get; }
+        private readonly string AllowedOrigins = "_allowedOrigins";
 
         public Startup(IConfiguration configuration)
         {
@@ -57,17 +55,23 @@ namespace DietTrack.SuperMarket
                 };
             });
 
-            //Authorization
-            services.AddAuthorization(options =>
+            string clientUrl = Configuration.GetValue<string>("ClientUrl");
+            services.AddCors(options =>
             {
-                options.AddPolicy("read:food", policy => policy.Requirements.Add(new HasScopeRequirement("read:food", domain)));
+                options.AddPolicy(AllowedOrigins,
+                builder =>
+                {
+                    builder.WithOrigins(clientUrl)
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowCredentials();
+                });
             });
-
-            services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(AllowedOrigins);
             app.UseAuthentication();
 
             app.UseSimpleInjector(_container, options =>
