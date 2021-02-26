@@ -5,26 +5,18 @@ using DietTrack.SuperMarket.DataViews;
 
 namespace DietTrack.SuperMarket.Core.Domain.Foods.Queries.Handlers
 {
-    public class GetFoodQueryHandler : IQueryHandler<GetFoodQuery, Paged<Food>>
+    public class GetFoodQueryHandler : IQueryHandler<GetFoodQuery, Food>
     {
-        public Task<Paged<Food>> HandleAsync(GetFoodQuery query)
+        public Task<Food> HandleAsync(GetFoodQuery query)
         {
-            var pagedData = new Paged<Food>
+            var data = new Food
             {
-                Total = 10,
-                Data = new List<Food>{
-                    new Food
-                    {
-                        Protein = 10,
-                        Fat = 10,
-                        Carbs = 10
-                    }
-                },
-                Page = query.Page,
-                PageSize = query.PageSize
+                Protein = 22,
+                Fat = 32,
+                Carbs = 47
             };
 
-            return Task.FromResult(pagedData);
+            return Task.FromResult(data);
         }
     }
 }

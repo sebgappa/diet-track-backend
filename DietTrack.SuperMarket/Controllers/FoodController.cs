@@ -22,10 +22,10 @@ namespace DietTrack.SuperMarket.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetFood([FromQuery] int barcode = 0, [FromQuery] int page = 1, [FromQuery] int pageSize = 25)
+        public async Task<IActionResult> GetFood([FromQuery] long barcode = 0)
         {
-            GetFoodQuery getFood = new GetFoodQuery(barcode, page, pageSize);
-            Paged<Food> result = await _queryProcessor.Process(getFood);
+            GetFoodQuery getFood = new GetFoodQuery(barcode);
+            Food result = await _queryProcessor.Process(getFood);
 
             return Ok(result);
         }
